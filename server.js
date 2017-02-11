@@ -75,23 +75,26 @@ app.get('/counter',function(req,res){
     
 });
 
+var names=[]; //  javascript object
+app.get('/submit-name',function(req,res){ // Query format ???
+   //Get the name from the url
+   var name=req.query.name; // again express
+     names.push(name);
+   
+   res.send(JSON.stringify(names));
+   
+    
+});
+
+
+
+
 app.get('/:articleName', function (req, res) {
     // feature of express framework : match
 var articleName=req.params.articleName;
 // again feature to extract articleName from res by express framework
 
   res.send(CreateTemplate(articles[articleName]));
-});
-
-var names=[]; //  javascript object
-app.get('/submit-name/:name',function(req,res){
-   //Get the name from the url
-   var name=req.params.name;
-   names.push(name);
-   
-   res.send(JSON.stringify(names));
-   
-    
 });
 
 
