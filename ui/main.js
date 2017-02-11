@@ -39,7 +39,7 @@ button.onclick=function(){
     
     
     request.open('GET','http://hellodivyani.imad.hasura-app.io/counter',true);
-    res.send(null);
+    request.send(null);
     
     
     
