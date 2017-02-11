@@ -97,7 +97,9 @@ ${content};
         
         
     ;
-    
+   
+   
+   return htmlTemplate; 
 }
 
 
