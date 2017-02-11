@@ -41,9 +41,51 @@ button.onclick=function(){
     request.open('GET','http://hellodivyani.imad.hasura-app.io/counter',true);
     request.send(null);
     
-    
-    
-    
-   
-  
 };
+
+// Email
+var nameInput=document.getElementById('name');
+var name= nameInput.value;
+var subButton = document.getElementById('sub');
+subButton.onclick=function(){
+    var names=['name1','name2','name3','name4'];
+    var list='';
+    var ulist = document.getElementById('nameList');
+    for(var i=0;i<names.length;i++)
+    {
+        list+='<li>'+names[i]+'</li>';
+        
+    }
+    ulist.innerHTML=list;
+    
+    
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
