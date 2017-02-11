@@ -44,19 +44,41 @@ button.onclick=function(){
 };
 
 // Email
-var nameInput=document.getElementById('name');
-var name= nameInput.value;
+
 var subButton = document.getElementById('sub');
 subButton.onclick=function(){
-    var names=['name1','name2','name3','name4'];
-    var list='';
-    var ulist = document.getElementById('nameList');
-    for(var i=0;i<names.length;i++)
+    //Create A request
+    var request=new XMLHttpRequest();
+    request.onreadystatechange=function()
     {
-        list+='<li>'+names[i]+'</li>';
+        if(request.readyState === XMLHttpRequest.DONE)
+        {
+            if(request.status ===200)
+            {
+                // do some action
+                var names=request.responseText;
+                names=JSON.parse(names); // convert string into javascript object
+                var list='';
+                var ulist = document.getElementById('nameList');
+                for(var i=0;i<names.length;i++)
+                {
+                    list+='<li>'+names[i]+'</li>';
+                    
+                }
+              
+                ulist.innerHTML=list;
+                
+                
+            }
+        }
         
-    }
-    ulist.innerHTML=list;
+    };
+      var nameInput=document.getElementById('name');
+                var name= nameInput.value;
+    request.open('GET','http://hellodivyani.imad.hasura-app.io/submit-name?name='+name,true);
+    request.send(null);
+    
+   
     
     
 };
