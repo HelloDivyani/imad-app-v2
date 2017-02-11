@@ -83,6 +83,17 @@ var articleName=req.params.articleName;
   res.send(CreateTemplate(articles[articleName]));
 });
 
+var names=[]; //  javascript object
+app.get('/submit-name/:name',function(req,res){
+   //Get the name from the url
+   var name=req.params.name;
+   names.push(name);
+   
+   res.send(JSON.stringify(names));
+   
+    
+});
+
 
 
 
