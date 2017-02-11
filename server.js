@@ -76,7 +76,7 @@ app.get('/counter',function(req,res){
 });
 
 var names=[]; //  javascript object
-app.get('/submit-name',function(req,res){ // Query format ???
+app.get('/submit-name',function(req,res){ // Query format ???   http://hellodivyani.imad.hasura-app.io/submit-name?name=hello
    //Get the name from the url
    var name=req.query.name; // again express
      names.push(name);
