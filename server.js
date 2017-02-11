@@ -69,7 +69,7 @@ app.get('/:articleName', function (req, res) {
     // feature of express framework : match
 var articleName=req.params.articleName;
 // again feature to extract articleName from res by express framework
-
+alert(articleName);
   res.send(CreateTemplate(articles[articleName]));
 });
 
