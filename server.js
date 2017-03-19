@@ -139,16 +139,12 @@ ${content};
 </div>
 </div>
 </body>
-</html>
-`
-        
-        
-    ;
-   
-   
-   return htmlTemplate; 
-}
+</html> `;
 
+ 
+   return htmlTemplate; 
+
+}
 
 
 app.get('/ui/madi.png', function (req, res) {
