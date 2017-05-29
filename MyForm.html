@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>MyForm</title>
+<script type="text/javascript">
+function display()
+{
+var Hobbies=document.forms[0];
+    var txt = "";
+    var i;
+    for (i = 4; i < Hobbies.length; i++) 
+{
+        if (Hobbies[i].checked)
+ {
+            txt = txt + Hobbies[i].value + " ";
+        }
+}
+
+
+var file="not selected";
+file=document.getElementById("photo").value;
+var name=document.getElementById("name").value;
+var pass=document.getElementById("password").value;
+var pin=document.getElementById("pincode").value;
+var gender;
+if (document.getElementById("male").checked)
+ {
+  gender = document.getElementById("male").value;
+}
+else if(document.getElementById("female").checked)
+{
+	gender = document.getElementById("female").value;
+}
+else
+{
+	gender = document.getElementById("other").value;
+}
+var state= document.getElementById("state");
+var selectState=state.options[state.selectedIndex].value;
+var lan=document.getElementById("myLanguage");
+var selectLan=lan.options[lan.selectedIndex].value;
+
+/*var check1,check2,check3;
+if(document.getElementById("read").checked==true)
+{
+	//check1 = document.getElementById("read").value;
+	check1="yes";
+	//document.getElementById("dis").innerHTML="Name     :   "+name+"<br>Password   :  "+pass+"<br>Gender : "+gender+"<br>Hobbies :   "+check1;
+}
+else{
+check1="no";
+}
+if(document.getElementById("music").checked==true)
+{
+	//check2 = document.getElementById("music").value;
+	ches";
+	//document.getElementById("dis").innerHTML="Name     :   "+name+"<br>Password   :  "+pass+"<br>Gender : "+gender+"<br>Hobbies :   "+check3;
+}
+else{
+	check3="no";
+}**/
+/*document.getElementById("dis").innerHTML="Name     :   "+name+"<br>Password   :  "+pass+"<br>Gender : "+gender+"<br>State :   "+selectState+
+"<br>Pincode : "+pin+"<br>Photo Uploaded : "+file+"<br>Language : "+selectLan+"<br>Your Hobbies  are : "+txt;**/
+
+localStorage.setItem("MyName",name);
+localStorage.setItem("MyPassword",pass);
+localStorage.setItem("Gender",gender);
+localStorage.setItem("MyState",selectState);
+localStorage.setItem("Mypin",pin);
+localStorage.setItem("MyPhoto",file);
+localStorage.setItem("Language",selectLan);
+localStorage.setItem("hobby",txt);
+}
+
+function again()
+{
+document.getElementById("form").reset();
+}
+function ok()
+{
+alert("hello");
+}
+</script>
+
+</head>
+<body>
+<h1 style="text-align:center;text-decoration:underline"><b>DATA-FORM</b></h1>
+<form action="myReceive.html" id="form" onsubmit="display();" method="post" name="Form1" >
+<table  style="width:100%">
+<tr>
+<td>Name</td>
+<td>: <input type="text" id="name" maxlength="30" placeholder="Enter your name" autocomplete required></input>
+</tr>
+<tr>
+<td>Password</td>
+<td>: <input type="password" id="password" placeholder="Enter password" required></input></td>
+</tr>
+<tr>
+<td>Gender</td>
+<td>:<input type="radio" id="male"  name="gender" value="Male" >Male </input><input id="female" type="radio" name="gender" value="Female" >Female </input>
+<input type="radio" name="gender" value="Other" id="other">Other</input></td>
+</tr>
+<tr>
+<td>Hobbies</td>
+<td>:<input type="checkbox" name="Hobbies" value="Reading" id="read" >Reading </input><input type="checkbox" value="Music" name="Hobbies" id="music">Music </input>
+<input value="Sports" type="checkbox" name="Hobbies" id="sport">Sports</input></td>
+</tr>
+<tr>
+<td>State</td>
+<td>:<select id="state" required>
+<option value="Gujarat">Gujarat</option>
+<option value="Maharastra">Maharashtra</option>
+<option value="Uttar Pradesh">Uttar Pradesh</option>
+<option value="Kerala">Kerala</option>
+<option value="Karnataka">Karnataka</option>
+<option value="Uttararakhand">Uttarakhand</option>
+<option value="Andhra Pradesh">Andhara Pradesh</option>
+<option value="Goa">Goa</option>
+<option value="Rajasthan">Rajasthan</option>
+</select></td>
+</tr>
+<tr>
+<td>Pincode</td>
+<td>: <input id="pincode" placeholder="Enter pincode "type="number" min="0" max="1000" required></input>
+</td>
+</tr>
+<tr>
+<td>Photo</td>
+<td>:<input type="file" maxlength="300" id="photo" name="photo" required></input></td>
+</tr>
+<tr>
+<td>Languages Known</td>
+<td>:<select id="myLanguage" multiple="multiple" size="3" >
+<option>English</option>
+<option>Hindi</option>
+<option>Gujarati</option><option>Sanskrit</option>
+<option>Marathi</option>
+
+
+</select>
+
+</td>
+
+</tr>
+
+
+</table>
+
+<center><br><br><br>
+<input type="submit"  value="Submit"></input>
+<input type="reset" onclick="again()" name="reset" value="Reset"></input></center>
+</form>
+<p id="dis"></p>
+</body>
+</html>
