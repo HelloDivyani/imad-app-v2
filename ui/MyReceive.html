@@ -1,0 +1,24 @@
+<html>
+<head>
+<script type="text/javascript">
+function display()
+{
+var name=localStorage.getItem("MyName");
+var pass=localStorage.getItem("MyPassword");
+var gender=localStorage.getItem("Gender");
+var selectState=localStorage.getItem("MyState");
+var pin=localStorage.getItem("Mypin");
+var file=localStorage.getItem("MyPhoto");
+var selectLan=localStorage.getItem("Language");
+var txt=localStorage.getItem("hobby");
+document.getElementById("dis").innerHTML="Name     :   "+name+"<br>Password   :  "+pass+"<br>Gender : "+gender+"<br>State :   "+selectState+
+"<br>Pincode : "+pin+"<br>Photo Uploaded : "+file+"<br>Language : "+selectLan+"<br>Your Hobbies  are : "+txt;
+}
+
+</script>
+<title>Submission</title>
+</head>
+<body onload="display()">
+<p id="dis"></p>
+</body>
+</html>
